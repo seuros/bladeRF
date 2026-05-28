@@ -121,6 +121,9 @@
  */
 #define BLADERF_FLASH_ADDR_FPGA 0x00040000
 
+/** Length of FPGA region of flash, in bytes */
+#define BLADERF_FLASH_BYTE_LEN_FPGA 0x00370000
+
 /** @} (End of BLADERF_FLASH_CONSTANTS) */
 
 /**
