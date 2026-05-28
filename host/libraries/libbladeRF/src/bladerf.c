@@ -2234,10 +2234,12 @@ int bladerf_load_gain_calibration(struct bladerf *dev, bladerf_channel ch, const
     }
 
     if (cal_file_loc != NULL) {
-        strcpy(filename, cal_file_loc);
+        strncpy(filename, cal_file_loc, filename_len);
+        filename[filename_len] = '\0';
     } else {
         log_debug("No calibration file specified, using serial number\n");
-        strcpy(filename, dev->ident.serial);
+        strncpy(filename, dev->ident.serial, filename_len);
+        filename[filename_len] = '\0';
         filename_len -= strlen(filename);
 
         if (BLADERF_CHANNEL_IS_TX(ch))
